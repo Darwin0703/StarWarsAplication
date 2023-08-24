@@ -1,0 +1,34 @@
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+<div class="row">
+  <div class="col-8">
+    <p class="h1" *ngIf="!loading">PLANETAS</p>
+  </div>
+  <div class="col-2" *ngIf="!loading">
+    <a class="float-right puntero" (click)="previousPage()">
+      <i class="fas fa-angle-double-left fa-3x alert-link"></i>
+    </a>
+  </div>
+  <div class="col-2" *ngIf="!loading">
+    <a class="float-right mr-4 puntero" (click)="nextPage()">
+      <i class="fas fa-angle-double-right fa-3x"></i>
+    </a>
+  </div>
+  <div *ngIf="!loading" class="card-columns m-5 animated fadeIn">
+    <div *ngFor="let planeta of planetas; let i = index" class="card puntero">
+      <div class="card-body">
+        <h5 class="card-title">{{ planeta.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Características del Planeta
+        </h6>
+        <p class="card-text">
+          <span>Periodo de Rotacion: {{ planeta.rotation_period }} Horas</span><br>
+          <span>Periodo de Orbita: {{ planeta.orbital_period }} Horas</span><br>
+          <span>Diametro: {{ planeta.diameter }} Km</span><br>
+          <span>Clima: {{ planeta.climate }} </span>
+          <span>Gravedad: {{ planeta.gravity }} </span>
+        </p>
+        <!-- <a href="#" class="badge badge-info">Ver mas...</a> -->
+      </div>
+    </div>
+  </div>
+</div>

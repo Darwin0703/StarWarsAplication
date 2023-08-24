@@ -1,0 +1,33 @@
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+<div class="row">
+  <div class="col-8">
+    <p class="h1" *ngIf="!loading">ESPECIES</p>
+  </div>
+  <div class="col-2" *ngIf="!loading">
+    <a class="float-right puntero" (click)="previousPage()">
+      <i class="fas fa-angle-double-left fa-3x alert-link"></i>
+    </a>
+  </div>
+  <div class="col-2" *ngIf="!loading">
+    <a class="float-right mr-4 puntero" (click)="nextPage()">
+      <i class="fas fa-angle-double-right fa-3x"></i>
+    </a>
+  </div>
+  <div *ngIf="!loading" class="card-columns m-5 animated fadeIn">
+    <div *ngFor="let especie of especies; let i = index" class="card puntero">
+      <div class="card-body">
+        <h5 class="card-title">{{ especie.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Características de la especie
+        </h6>
+        <p class="card-text">
+          <span>Clasificación: {{ especie.classification }} </span><br />
+          <span>Lenguaje: {{ especie.language }} </span><br />
+          <span>Desiganación: {{ especie.designation }} </span><br />
+          <span>Altura: {{ especie.average_height }} </span>
+        </p>
+        <!-- <a href="#" class="badge badge-info">Ver mas...</a> -->
+      </div>
+    </div>
+  </div>
+</div>

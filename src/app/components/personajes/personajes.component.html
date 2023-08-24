@@ -1,0 +1,36 @@
+<app-loading *ngIf="loading" class="m-5"></app-loading>
+<div class="row">
+  <div class="col-8">
+    <p class="h1" *ngIf="!loading">PERSONAJES</p>
+  </div>
+  <div class="col-2" *ngIf="!loading">
+      <a class="float-right puntero" (click)="previousPage()">
+        <i class="fas fa-angle-double-left fa-3x alert-link"></i>
+      </a>
+    </div>
+    <div class="col-2" *ngIf="!loading">
+      <a class="float-right mr-4 puntero" (click)="nextPage()">
+        <i class="fas fa-angle-double-right fa-3x"></i>
+      </a>
+    </div>
+  <div *ngIf="!loading" class="card-columns m-5 animated fadeIn">
+    <div
+      *ngFor="let personaje of personajes; let i = index"
+      class="card puntero"
+    >
+      <div class="card-body">
+        <h5 class="card-title">{{ personaje.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Características del personaje
+        </h6>
+        <p class="card-text">
+          <span>Altura: {{ personaje.height }} cms</span><br />
+          <span>Masa Corporal: {{ personaje.mass }} kg</span><br />
+          <span>Color de cabello: {{ personaje.hair_color }} </span><br />
+          <span>Color de Piel: {{ personaje.skin_color }} </span>
+        </p>
+        <a class="badge badge-info" (click)="verPersonaje(personaje)">Ver mas...</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<app-loading *ngIf="!mostrar" class="m-5"></app-loading>
+<div *ngIf="mostrar" class="container">
+  <div class="row">
+    <div class="col-11">
+      <h1>{{ personaje.name | uppercase }}</h1>
+    </div>
+    <div class="col-1">
+      <a class="float-right puntero" (click)="previousPage()" >
+        <i class="fas fa-reply fa-3x" alt="Regresar"></i>
+      </a>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-4">
+      <h4>Genero: {{ personaje.gender | uppercase }}</h4>
+    </div>
+    <div class="col-4">
+      <h4>Altura: {{ personaje.height }} cms</h4>
+    </div>
+    <div class="col-4">
+      <h4>Color de Ojos: {{ personaje.eye_color | uppercase }}</h4>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-4">
+      <h4>Planeta Origen: {{ planeta.name }}</h4>
+    </div>
+    <div class="col-4">
+      <h4>Año de nacimiento: {{ personaje.birth_year }}</h4>
+    </div>
+    <div class="col-4">
+      <h4>Color de Piel: {{ personaje.skin_color | uppercase }}</h4>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Especies</h3>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let especie of species">
+              <h5 style="color: black;">{{ especie }}</h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Películas</h3>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let pelicula of peliculas">
+              <h5 style="color: black;">{{ pelicula }}</h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Naves</h3>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let nave of naves">
+              <h5 style="color: black;">{{ nave }}</h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Vehículos</h3>
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let vehiculo of vehiculos">
+              <h5 style="color: black;">{{ vehiculo }}</h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
